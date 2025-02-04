@@ -80,7 +80,7 @@ static inline uint32_t urgb_u32(uint8_t r, uint8_t g, uint8_t b)
     return ((uint32_t)(r) << 8) | ((uint32_t)(g) << 16) | (uint32_t)(b);
 }
 
-void set_one_led(int index, uint8_t r, uint8_t g, uint8_t b)
+void set_one_led(int led_index, uint8_t r, uint8_t g, uint8_t b)
 {
     // Define a cor com base nos parâmetros fornecidos
     uint32_t color = urgb_u32(r, g, b);
@@ -88,7 +88,7 @@ void set_one_led(int index, uint8_t r, uint8_t g, uint8_t b)
     // Define todos os LEDs com a cor especificada
     for (int i = 0; i < NUM_PIXELS; i++)
     {
-        if (led_buffer[index][i])
+        if (led_buffer[led_index][i])
         {
             put_pixel(color); // Liga o LED com um no buffer
         }

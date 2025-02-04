@@ -2,16 +2,10 @@
 #include "pico/stdlib.h"
 #include "pio.h"
 
-// Variável global para armazenar a cor (Entre 0 e 255 para intensidade)
-uint8_t led_r = 0;   // Intensidade do vermelho
-uint8_t led_g = 0;   // Intensidade do verde
-uint8_t led_b = 100; // Intensidade do azul
-
 // Variáveis globais
 static volatile uint a = 1;
 static volatile uint32_t last_time_A = 0; // Armazena o tempo do último evento (em microssegundos)
 static volatile uint32_t last_time_B = 0;
-static volatile int index = 0;
 bool led_on_g = false; // Estado do led verde inicialmente desligado
 bool led_on_b = false; // Estado do led azul inicialmente desligado
 
