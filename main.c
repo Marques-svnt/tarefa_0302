@@ -17,9 +17,12 @@ int main()
     stdio_init_all();
     initializePio();
 
+    // Configuração da interrupção com callback
+    gpio_set_irq_enabled_with_callback(BUTTON_A, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
+    gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
     while (true) {
-        printf("Hello, world!\n");
+        //printf("Hello, world!\n");
         sleep_ms(1000);
     }
 }
