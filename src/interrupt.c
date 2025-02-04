@@ -32,16 +32,9 @@ void gpio_irq_handler(uint gpio, uint32_t events)
         last_time_A = current_time;
         printf("A: %d\n", a); // Para controle quando se usa o monitor serial para verificar se há bouncing
         a++;
-        if (led_on_g == false)
-        {
-            led_on_g = true;
-            gpio_put(PIN_LED_G, led_on_g);
-        }
-        else if (led_on_g == true)
-        {
-            led_on_g = false;
-            gpio_put(PIN_LED_G, led_on_g);
-        }
+
+        led_on_g = !led_on_g;
+        gpio_put(PIN_LED_G, led_on_g);
     }
     // Ligar e desligar o led verde ao apertar o botão A
     else if (gpio == BUTTON_B && debounce(&last_time_A, 200000))
@@ -50,16 +43,8 @@ void gpio_irq_handler(uint gpio, uint32_t events)
         printf("B: %d\n", a);
         a++;
         {
-            if (led_on_b == false)
-            {
-                led_on_b = true;
-                gpio_put(PIN_LED_B, led_on_b);
-            }
-            else if (led_on_b == true)
-            {
-                led_on_b = false;
-                gpio_put(PIN_LED_B, led_on_b);
-            }
+            led_on_b = !led_on_b;
+            gpio_put(PIN_LED_B, led_on_b);
         }
     }
 }
