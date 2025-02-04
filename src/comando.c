@@ -1,9 +1,5 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "pico/stdlib.h"
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
 #include "pio.h"
@@ -14,68 +10,68 @@ uint8_t led_g = 0;   // Intensidade do verde
 uint8_t led_b = 100; // Intensidade do azul
 static volatile int led_index = 0;
 
-char command[32]; // Variável para armazenar um comando de uma letra
+char command; // Variável para armazenar um comando de uma letra
 
 // Função que interpreta os comandos recebidos
-void handle_command(const char *command)
+void handle_command(char command)
 {
-    if (strcmp(command, "0") == 0)
+    if (command == '0')
     {
-        printf("Mostrando no led o número: 0\n");
+        printf("Mostrando no LED o número: 0\n");
         led_index = 0;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "1") == 0)
+    else if (command == '1')
     {
-        printf("Mostrando no led o número: 1\n");
+        printf("Mostrando no LED o número: 1\n");
         led_index = 1;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "2") == 0)
+    else if (command == '2')
     {
-        printf("Mostrando no led o número: 2\n");
+        printf("Mostrando no LED o número: 2\n");
         led_index = 2;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "3") == 0)
+    else if (command == '3')
     {
-        printf("Mostrando no led o número: 3\n");
+        printf("Mostrando no LED o número: 3\n");
         led_index = 3;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "4") == 0)
+    else if (command == '4')
     {
-        printf("Mostrando no led o número: 4\n");
+        printf("Mostrando no LED o número: 4\n");
         led_index = 4;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "5") == 0)
+    else if (command == '5')
     {
-        printf("Mostrando no led o número: 5\n");
+        printf("Mostrando no LED o número: 5\n");
         led_index = 5;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "6") == 0)
+    else if (command == '6')
     {
-        printf("Mostrando no led o número: 6\n");
+        printf("Mostrando no LED o número: 6\n");
         led_index = 6;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "7") == 0)
+    else if (command == '7')
     {
-        printf("Mostrando no led o número: 7\n");
+        printf("Mostrando no LED o número: 7\n");
         led_index = 7;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "8") == 0)
+    else if (command == '8')
     {
-        printf("Mostrando no led o número: 8\n");
+        printf("Mostrando no LED o número: 8\n");
         led_index = 8;
         set_one_led(led_index, led_r, led_g, led_b);
     }
-    else if (strcmp(command, "9") == 0)
+    else if (command == '9')
     {
-        printf("Mostrando no led o número: 9\n");
+        printf("Mostrando no LED o número: 9\n");
         led_index = 9;
         set_one_led(led_index, led_r, led_g, led_b);
     }
@@ -87,7 +83,7 @@ void handle_command(const char *command)
 
 void leitor_comando()
 {
-    printf("Digite um comando: ");
-    scanf("%31s", command);
+    printf("Digite um comando (0-9): ");
+    scanf(" %c", &command); // Espaço antes de %c para ignorar espaços em branco
     handle_command(command);
 }
