@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "pico/stdlib.h"
 #include "hardware/pio.h"
-#include "hardware/clocks.h"
 #include "pio.h"
 #include "display.h"
 
@@ -23,11 +22,19 @@ void uart_handler()
 
             display_limpa(); // Limpa o display
 
-            char caractere[50]; // Buffer para o texto a ser exibido
+            char caractere[50];                              // Buffer para o texto a ser exibido
             snprintf(caractere, sizeof(caractere), "%c", c); // Formata o caractere para ser inserido como texto no display
 
-            display("CARACTERE:", 30, 20); 
-            display(caractere, 60, 35); 
+            if (c >= '0' && c <= '9')
+            {
+                display("Caractere:", 30, 20);
+                display(caractere, 60, 35);
+            }
+            else
+            {
+                display("Caractere:", 30, 20);
+                display("Invalido", 30, 35);
+            }
 
             // Checar qual led deve ligar
             switch (c)

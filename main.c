@@ -1,10 +1,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include "pico/stdlib.h"
 #include "hardware/pio.h"
-#include "hardware/clocks.h"
 #include "pio.h"
 #include "pinos.h"
 #include "interrupt.h"
@@ -25,11 +22,11 @@ int main()
     gpio_set_irq_enabled_with_callback(BUTTON_A, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
     gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
-    display("AGUARDANDO",15,20);
-    display("COMANDO",15,35);
+    display("Aguardando", 25, 20);
+    display("Comando", 30, 35);
 
     while (true)
-    {  
+    {
         uart_handler();
         sleep_ms(1000);
     }

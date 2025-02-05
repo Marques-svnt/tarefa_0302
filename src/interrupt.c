@@ -41,8 +41,8 @@ void gpio_irq_handler(uint gpio, uint32_t events)
             printf("Ligando o LED verde\n");
 
             display_limpa();
-            display("LIGANDO LED", 15, 20);
-            display("VERDE", 45, 35);
+            display("Ligando LED", 15, 20);
+            display("Verde", 45, 35);
         }
         else if (led_on_g == true)
         {
@@ -52,8 +52,8 @@ void gpio_irq_handler(uint gpio, uint32_t events)
             printf("Desligando o LED verde\n");
 
             display_limpa();
-            display("DESLIGANDO LED", 10, 20);
-            display("VERDE", 45, 35);
+            display("Desligando LED", 10, 20);
+            display("Verde", 45, 35);
         }
     }
 
@@ -71,8 +71,8 @@ void gpio_irq_handler(uint gpio, uint32_t events)
             printf("Ligando o LED azul\n");
 
             display_limpa();
-            display("LIGANDO LED", 15, 20);
-            display("AZUL", 45, 35);
+            display("Ligando LED", 15, 20);
+            display("Azul", 45, 35);
         }
         else if (led_on_b == true)
         {
@@ -82,8 +82,8 @@ void gpio_irq_handler(uint gpio, uint32_t events)
             printf("Desligando o LED azul\n");
 
             display_limpa();
-            display("DESLIGANDO LED", 10, 20);
-            display("AZUL", 45, 35);
+            display("Desligando LED", 10, 20);
+            display("Azul", 45, 35);
         }
     }
 }

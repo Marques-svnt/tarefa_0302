@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "pio.h"
-#include "hardware/i2c.h"
-#include "ssd1306.h"
-#include "font.h"
-#include "display.h"
 
 void pinosInit()
 {
