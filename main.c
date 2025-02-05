@@ -25,11 +25,11 @@ int main()
     gpio_set_irq_enabled_with_callback(BUTTON_A, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
     gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
+    display("AGUARDANDO",15,20);
+    display("COMANDO",15,35);
+
     while (true)
-    {
-        display("RUTHLESSNESS",15,10);
-        display("RUTHLESSNESS",15,30);
-        display("RUTHLESSNESS",15,48);    
+    {  
         uart_handler();
         sleep_ms(1000);
     }

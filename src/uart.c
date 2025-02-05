@@ -4,6 +4,7 @@
 #include "hardware/pio.h"
 #include "hardware/clocks.h"
 #include "pio.h"
+#include "display.h"
 
 // Variável global para armazenar a cor (Entre 0 e 255 para intensidade)
 uint8_t led_r = 0;   // Intensidade do vermelho
@@ -19,8 +20,13 @@ void uart_handler()
         if (scanf("%c", &c) == 1) // Lê caractere da entrada padrão
         {
             printf("Recebido: '%c'\n", c);
+            display_limpa();
+            char texto[50]; // Buffer para o texto a ser exibido
+            snprintf(texto, sizeof(texto), "%c", c); // Formata a string
+            display("CARACTERE:", 30, 20); // Passa o texto formatado para a função display
+            display(texto, 60, 35); // Passa o texto formatado para a função display
 
-            // Vai checar qual comando foi recebido e fazer a ligação do led apropriado
+            // Checar qual led deve ligar
             switch (c)
             {
             case '0':
