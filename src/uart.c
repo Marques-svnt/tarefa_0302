@@ -20,11 +20,14 @@ void uart_handler()
         if (scanf("%c", &c) == 1) // Lê caractere da entrada padrão
         {
             printf("Recebido: '%c'\n", c);
-            display_limpa();
-            char texto[50]; // Buffer para o texto a ser exibido
-            snprintf(texto, sizeof(texto), "%c", c); // Formata a string
-            display("CARACTERE:", 30, 20); // Passa o texto formatado para a função display
-            display(texto, 60, 35); // Passa o texto formatado para a função display
+
+            display_limpa(); // Limpa o display
+
+            char caractere[50]; // Buffer para o texto a ser exibido
+            snprintf(caractere, sizeof(caractere), "%c", c); // Formata o caractere para ser inserido como texto no display
+
+            display("CARACTERE:", 30, 20); 
+            display(caractere, 60, 35); 
 
             // Checar qual led deve ligar
             switch (c)
