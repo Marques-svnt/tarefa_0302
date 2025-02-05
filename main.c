@@ -10,7 +10,8 @@
 #include "interrupt.h"
 #include "uart.h"
 #include "display.h"
-
+#include "ssd1306.h"
+#include "font.h"
 
 int main()
 {
@@ -18,12 +19,17 @@ int main()
     pinosInit();
     stdio_init_all();
     initializePio();
+    initI2C();
 
     // Configuração da interrupção com callback
     gpio_set_irq_enabled_with_callback(BUTTON_A, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
     gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
-    while (true) {
+    while (true)
+    {
+        display("RUTHLESSNESS",15,10);
+        display("RUTHLESSNESS",15,30);
+        display("RUTHLESSNESS",15,48);    
         uart_handler();
         sleep_ms(1000);
     }

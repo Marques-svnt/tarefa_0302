@@ -2,7 +2,10 @@
 #define DISPLAY_H
 
 //Declaração da função de display
-void gpio_irq_handler(uint gpio, uint32_t events);
+void initI2C();
+void display(const char *texto, int x, int y);
+void display_limpa();
+
 #define I2C_PORT i2c1
 #define I2C_SDA 14
 #define I2C_SCL 15
