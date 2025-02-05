@@ -9,6 +9,7 @@
 #include "pinos.h"
 #include "interrupt.h"
 #include "uart.h"
+#include "display.h"
 
 
 int main()

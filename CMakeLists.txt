@@ -39,7 +39,9 @@ add_executable(main main.c
                 src/pio.c
                 src/pinos.c
                 src/interrupt.c
-                src/uart.c)
+                src/uart.c
+                src/display.c
+                src/ssd1306.c)
 
 pico_set_program_name(main "main")
 pico_set_program_version(main "0.1")
@@ -57,7 +59,8 @@ target_link_libraries(main
 # Add the standard library to the build
 target_link_libraries(main
         pico_stdlib
-        hardware_pio)
+        hardware_pio
+        hardware_i2c)
 
 # Add any user requested libraries
 target_link_libraries(main 
