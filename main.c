@@ -8,7 +8,6 @@
 #include "pio.h"
 #include "pinos.h"
 #include "interrupt.h"
-#include "comando.h"
 
 
 int main()
@@ -23,7 +22,6 @@ int main()
     gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
     while (true) {
-        leitor_comando();
         sleep_ms(1000);
     }
 }
