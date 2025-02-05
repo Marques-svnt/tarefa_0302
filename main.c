@@ -8,6 +8,7 @@
 #include "pio.h"
 #include "pinos.h"
 #include "interrupt.h"
+#include "uart.h"
 
 
 int main()
@@ -22,6 +23,7 @@ int main()
     gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
     while (true) {
+        uart_handler();
         sleep_ms(1000);
     }
 }

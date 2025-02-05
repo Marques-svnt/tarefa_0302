@@ -39,7 +39,7 @@ add_executable(main main.c
                 src/pio.c
                 src/pinos.c
                 src/interrupt.c
-                )
+                src/uart.c)
 
 pico_set_program_name(main "main")
 pico_set_program_version(main "0.1")
