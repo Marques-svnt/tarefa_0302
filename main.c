@@ -23,7 +23,7 @@ int main()
     gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
     display("Aguardando", 25, 20);
-    display("Comando", 30, 35);
+    display("Comando", 35, 35);
 
     while (true)
     {

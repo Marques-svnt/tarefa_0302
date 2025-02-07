@@ -25,16 +25,8 @@ void uart_handler()
             char caractere[50];                              // Buffer para o texto a ser exibido
             snprintf(caractere, sizeof(caractere), "%c", c); // Formata o caractere para ser inserido como texto no display
 
-            if (c >= '0' && c <= '9')
-            {
-                display("Caractere:", 30, 20);
-                display(caractere, 60, 35);
-            }
-            else
-            {
-                display("Caractere:", 30, 20);
-                display("Invalido", 30, 35);
-            }
+            display("Caractere:", 30, 20);
+            display(caractere, 60, 35);
 
             // Checar qual led deve ligar
             switch (c)
@@ -70,7 +62,7 @@ void uart_handler()
                 set_one_led(9, led_r, led_g, led_b);
                 break;
             default:
-                printf("Comando inválido: '%c'\n", c);
+                set_one_led(10, led_r, led_g, led_b);
                 break;
             }
         }
