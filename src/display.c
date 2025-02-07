@@ -26,6 +26,7 @@ void initI2C()
     ssd1306_send_data(&ssd);
 }
 
+// Função que recebe o texto e coordenadas para exibir no display a mensagem
 void display(const char *texto, int x, int y)
 {
     // Atualiza o conteúdo do display com animações
@@ -34,6 +35,7 @@ void display(const char *texto, int x, int y)
     ssd1306_send_data(&ssd);                         // Atualiza o display
 }
 
+// Limpa o display
 void display_limpa(){
-    ssd1306_fill(&ssd, false);                        // Limpa o display
+    ssd1306_fill(&ssd, false);
 }

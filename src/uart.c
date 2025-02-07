@@ -25,10 +25,11 @@ void uart_handler()
             char caractere[50];                              // Buffer para o texto a ser exibido
             snprintf(caractere, sizeof(caractere), "%c", c); // Formata o caractere para ser inserido como texto no display
 
-            display("Caractere:", 30, 20);
+            // Exibe o caractere na tela do display
+            display("Caractere", 30, 20);
             display(caractere, 60, 35);
 
-            // Checar qual led deve ligar
+            // Checar qual matriz deve ligar
             switch (c)
             {
             case '0':

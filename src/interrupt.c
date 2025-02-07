@@ -33,6 +33,8 @@ void gpio_irq_handler(uint gpio, uint32_t events)
         last_time_A = current_time;
         printf("Botão A: %d\n", a); // Para controle quando se usa o monitor serial para verificar se há bouncing
         a++;
+
+        // Ligar ou desligar o led verde e exibir no serial monitor e no display a mensagem sobe o estado do led
         if (led_on_g == false)
         {
             led_on_g = true;
@@ -63,6 +65,8 @@ void gpio_irq_handler(uint gpio, uint32_t events)
         last_time_B = current_time;
         printf("Botão B: %d\n", a);
         a++;
+        
+        // Ligar ou desligar o led azul e exibir no serial monitor e no display a mensagem sobe o estado do led
         if (led_on_b == false)
         {
             led_on_b = true;

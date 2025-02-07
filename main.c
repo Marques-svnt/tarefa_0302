@@ -22,9 +22,11 @@ int main()
     gpio_set_irq_enabled_with_callback(BUTTON_A, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
     gpio_set_irq_enabled_with_callback(BUTTON_B, GPIO_IRQ_EDGE_FALL, true, &gpio_irq_handler);
 
+    // Display inicial
     display("Aguardando", 25, 20);
     display("Comando", 35, 35);
 
+    // Loop principal que chama o controle via UART para ligar os LEDs da matriz e exibir os caracteres digitados
     while (true)
     {
         uart_handler();
