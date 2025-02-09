@@ -7,12 +7,16 @@ Este projeto utiliza a placa BitDogLab baseada no microcontrolador RP2040 para d
 
 ## Funcionalidades
 
-### Tarefa 1: Exibição de Caracteres via UART
+### Modificação do arquivo font.h
+  - As letras e números da fonte original foram refeitos para um estilo mais legível.
+  - Letras minúsculas foram adicionadas à fonte.
+
+### Exibição de Caracteres via UART
 - **Entrada de Dados pelo Serial Monitor:**
   - Cada caractere digitado é exibido no display SSD1306.
   - Números entre `0` e `9` ativam padrões específicos na matriz de LEDs WS2812.
 
-### Tarefa 2: Interação com Botões
+### Interação com Botões
 - **Botão A:**
   - Alterna o estado do LED RGB verde (ligado/desligado).
   - Exibe uma mensagem informativa no display SSD1306.
