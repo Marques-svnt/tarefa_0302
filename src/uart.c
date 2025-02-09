@@ -8,7 +8,7 @@
 // Variável global para armazenar a cor (Entre 0 e 255 para intensidade)
 uint8_t led_r = 0;   // Intensidade do vermelho
 uint8_t led_g = 0;   // Intensidade do verde
-uint8_t led_b = 100; // Intensidade do azul
+uint8_t led_b = 20; // Intensidade do azul
 
 void uart_handler()
 {
